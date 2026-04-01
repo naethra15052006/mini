@@ -1,0 +1,41 @@
+.dashboard {
+  padding: 2rem;
+  background: white;
+  min-height: 100vh;
+}
+
+.welcome-card {
+  background: #f59e0b;
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.job-card {
+  border: 1px solid #e5e7eb;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.job-card:hover {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 4rem;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: red;
+}

@@ -1,0 +1,208 @@
+{
+  "users": [
+    {
+      "name": "John Admin",
+      "email": "admin@workbridge.com",
+      "password": "admin123",
+      "role": "ADMIN",
+      "latitude": 12.9716,
+      "longitude": 77.5946,
+      "skills": "Management",
+      "availability": "Full-time",
+      "rating": 5.0
+    },
+    {
+      "name": "Alice Employer",
+      "email": "alice@company.com",
+      "password": "employer123",
+      "role": "EMPLOYER",
+      "latitude": 12.9716,
+      "longitude": 77.5946,
+      "skills": "Project Management",
+      "availability": "Flexible",
+      "rating": 4.5
+    },
+    {
+      "name": "Bob Employer",
+      "email": "bob@startup.com",
+      "password": "employer123",
+      "role": "EMPLOYER",
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "skills": "Business Development",
+      "availability": "Flexible",
+      "rating": 4.2
+    },
+    {
+      "name": "Charlie Worker",
+      "email": "charlie@email.com",
+      "password": "worker123",
+      "role": "WORKER",
+      "latitude": 12.9716,
+      "longitude": 77.5946,
+      "skills": "Carpentry, Plumbing",
+      "availability": "Part-time",
+      "rating": 4.8
+    },
+    {
+      "name": "Diana Worker",
+      "email": "diana@email.com",
+      "password": "worker123",
+      "role": "WORKER",
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "skills": "Electrical, Painting",
+      "availability": "Full-time",
+      "rating": 4.6
+    },
+    {
+      "name": "Eve Worker",
+      "email": "eve@email.com",
+      "password": "worker123",
+      "role": "WORKER",
+      "latitude": 12.9250,
+      "longitude": 77.6278,
+      "skills": "Cleaning, Cooking",
+      "availability": "Part-time",
+      "rating": 4.3
+    }
+  ],
+  "jobs": [
+    {
+      "title": "Home Renovation",
+      "description": "Need experienced carpenter for home renovation work",
+      "skill": "Carpentry",
+      "wage": 500.0,
+      "maxApplicants": 3,
+      "currentApplicants": 0,
+      "latitude": 12.9716,
+      "longitude": 77.5946,
+      "status": "OPEN"
+    },
+    {
+      "title": "Office Plumbing Repair",
+      "description": "Plumbing issues in office building need immediate attention",
+      "skill": "Plumbing",
+      "wage": 800.0,
+      "maxApplicants": 2,
+      "currentApplicants": 0,
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "status": "OPEN"
+    },
+    {
+      "title": "Electrical Wiring Installation",
+      "description": "New electrical wiring needed for warehouse",
+      "skill": "Electrical",
+      "wage": 1200.0,
+      "maxApplicants": 4,
+      "currentApplicants": 0,
+      "latitude": 12.9250,
+      "longitude": 77.6278,
+      "status": "OPEN"
+    },
+    {
+      "title": "House Painting",
+      "description": "Interior and exterior painting for 3BHK apartment",
+      "skill": "Painting",
+      "wage": 600.0,
+      "maxApplicants": 2,
+      "currentApplicants": 0,
+      "latitude": 12.9716,
+      "longitude": 77.5946,
+      "status": "OPEN"
+    },
+    {
+      "title": "Deep Cleaning Service",
+      "description": "Post-construction deep cleaning required",
+      "skill": "Cleaning",
+      "wage": 400.0,
+      "maxApplicants": 5,
+      "currentApplicants": 0,
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "status": "OPEN"
+    }
+  ],
+  "applications": [
+    {
+      "jobId": 1,
+      "workerEmail": "charlie@email.com",
+      "status": "APPLIED"
+    },
+    {
+      "jobId": 1,
+      "workerEmail": "diana@email.com",
+      "status": "APPLIED"
+    },
+    {
+      "jobId": 2,
+      "workerEmail": "charlie@email.com",
+      "status": "APPROVED"
+    },
+    {
+      "jobId": 3,
+      "workerEmail": "eve@email.com",
+      "status": "APPLIED"
+    },
+    {
+      "jobId": 4,
+      "workerEmail": "diana@email.com",
+      "status": "APPLIED"
+    }
+  ],
+  "payments": [
+    {
+      "jobId": 1,
+      "workerEmail": "charlie@email.com",
+      "amount": 500.0,
+      "status": "PENDING"
+    },
+    {
+      "jobId": 2,
+      "workerEmail": "charlie@email.com",
+      "amount": 800.0,
+      "status": "PAID"
+    },
+    {
+      "jobId": 3,
+      "workerEmail": "eve@email.com",
+      "amount": 1200.0,
+      "status": "PENDING"
+    },
+    {
+      "jobId": 4,
+      "workerEmail": "diana@email.com",
+      "amount": 600.0,
+      "status": "PAID"
+    }
+  ],
+  "ratings": [
+    {
+      "givenByEmail": "alice@company.com",
+      "givenToEmail": "charlie@email.com",
+      "ratingValue": 4.5
+    },
+    {
+      "givenByEmail": "charlie@email.com",
+      "givenToEmail": "alice@company.com",
+      "ratingValue": 5.0
+    },
+    {
+      "givenByEmail": "bob@startup.com",
+      "givenToEmail": "diana@email.com",
+      "ratingValue": 4.0
+    },
+    {
+      "givenByEmail": "diana@email.com",
+      "givenToEmail": "bob@startup.com",
+      "ratingValue": 4.5
+    },
+    {
+      "givenByEmail": "eve@email.com",
+      "givenToEmail": "alice@company.com",
+      "ratingValue": 4.2
+    }
+  ]
+}
+

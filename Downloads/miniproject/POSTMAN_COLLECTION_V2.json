@@ -1,0 +1,374 @@
+{
+  "info": {
+    "name": "WorkBridge API",
+    "description": "API Collection for WorkBridge Job Portal",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080/api"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Auth - Register User",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/users/register",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"John Admin\",\n  \"email\": \"admin@workbridge.com\",\n  \"password\": \"admin123\",\n  \"role\": \"ADMIN\",\n  \"latitude\": 12.9716,\n  \"longitude\": 77.5946,\n  \"skills\": \"Management\",\n  \"availability\": \"Full-time\",\n  \"rating\": 5.0\n}"
+        }
+      }
+    },
+    {
+      "name": "Auth - Register Employer",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/users/register",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Alice Employer\",\n  \"email\": \"alice@company.com\",\n  \"password\": \"employer123\",\n  \"role\": \"EMPLOYER\",\n  \"latitude\": 12.9716,\n  \"longitude\": 77.5946,\n  \"skills\": \"Project Management\",\n  \"availability\": \"Flexible\",\n  \"rating\": 4.5\n}"
+        }
+      }
+    },
+    {
+      "name": "Auth - Register Worker",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/users/register",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Charlie Worker\",\n  \"email\": \"charlie@email.com\",\n  \"password\": \"worker123\",\n  \"role\": \"WORKER\",\n  \"latitude\": 12.9716,\n  \"longitude\": 77.5946,\n  \"skills\": \"Carpentry, Plumbing\",\n  \"availability\": \"Part-time\",\n  \"rating\": 4.8\n}"
+        }
+      }
+    },
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/auth/login",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"alice@company.com\",\n  \"password\": \"employer123\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Jobs - Get All Open Jobs",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/jobs",
+        "header": []
+      }
+    },
+    {
+      "name": "Jobs - Post Job (Employer)",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/jobs",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Home Renovation\",\n  \"description\": \"Need experienced carpenter for home renovation work\",\n  \"skill\": \"Carpentry\",\n  \"wage\": 500.0,\n  \"maxApplicants\": 3,\n  \"latitude\": 12.9716,\n  \"longitude\": 77.5946\n}"
+        }
+      }
+    },
+    {
+      "name": "Jobs - Get Nearby Jobs",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/jobs/nearby?latitude=12.9716&longitude=77.5946",
+          "host": ["{{baseUrl}}"],
+          "path": ["jobs", "nearby"],
+          "query": [
+            {
+              "key": "latitude",
+              "value": "12.9716"
+            },
+            {
+              "key": "longitude",
+              "value": "77.5946"
+            }
+          ]
+        },
+        "header": []
+      }
+    },
+    {
+      "name": "Jobs - Get My Jobs",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/jobs/my-jobs",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Jobs - Close Job",
+      "request": {
+        "method": "PUT",
+        "url": "{{baseUrl}}/jobs/1/close",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Applications - Apply for Job",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/applications/apply/1",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Applications - Get My Applications",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/applications/my-applications",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Applications - Get Applications by Job",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/applications/job/1",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Applications - Approve",
+      "request": {
+        "method": "PUT",
+        "url": "{{baseUrl}}/applications/1/approve",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Applications - Reject",
+      "request": {
+        "method": "PUT",
+        "url": "{{baseUrl}}/applications/2/reject",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Applications - Complete",
+      "request": {
+        "method": "PUT",
+        "url": "{{baseUrl}}/applications/1/complete",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Users - Get All Users",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/users",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Users - Get Workers",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/users/workers",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Users - Get Employers",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/users/employers",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Users - Get User by ID",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/users/1",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Payments - Get My Payments",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/payments/my-payments",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Payments - Mark as Paid",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/payments/pay/1",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Ratings - Give Rating",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/ratings?userId=1&ratingValue=4.5",
+          "host": ["{{baseUrl}}"],
+          "path": ["ratings"],
+          "query": [
+            {
+              "key": "userId",
+              "value": "1"
+            },
+            {
+              "key": "ratingValue",
+              "value": "4.5"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Ratings - Get User Ratings",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/ratings/user/1",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Ratings - Get Average Rating",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/ratings/user/1/average",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ]
+      }
+    }
+  ]
+}
+
